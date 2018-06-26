@@ -26,12 +26,12 @@ recipeRouter.get('/:id', (req, res) => {
 
 recipeRouter.put('/:id', (req, res) => {
     Recipe.findByIdAndUpdate(
-        {_id: req.params.id },
-        req.body,
+       req.params.id,
+       req.body,
         {new: true},
-        (err, updateRecipe) => {
+        (err, updatedRecipe) => {
             if(err) return res.status(500).send(err);
-            return res.send(updateRecipe);
+            return res.send(updatedRecipe);
         }
     )
 })
