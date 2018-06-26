@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-mongoose.connect('mongodb://localhost/tastmanager', err => {
+mongoose.connect('mongodb://localhost/recipe-database', err => {
     if(err) throw err
     console.log('connected to the database');
 })
