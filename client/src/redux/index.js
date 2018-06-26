@@ -13,7 +13,7 @@ export const getRecipes = () => {
     }
 }
 
-export const addRecipe = () => {
+export const addRecipe = newRecipe => {
     return dispatch => {
         axios.post('/recipe', newRecipe).then(response => {
             dispatch(getRecipes())
