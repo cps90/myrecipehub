@@ -1,7 +1,6 @@
 import React from 'react';
 
-
-class Category extends React.Component {
+class Desserts extends React.Component {
     render() {
         return (
             <div>
@@ -11,4 +10,4 @@ class Category extends React.Component {
     }
 }
 
-export default Category
+export default Desserts
