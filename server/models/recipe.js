@@ -32,8 +32,12 @@ const recipeSchema = new Schema({
     directory: {
         type: String,
         required: true
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
     }
-
 
 })
 

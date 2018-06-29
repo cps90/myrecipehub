@@ -1,14 +1,20 @@
 const express = require('express');
 const app = express();
-require('dotenv').config();
+require("dotenv").config();
+const expressJwt = require("express-jwt");
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 app.use(morgan('dev'));
+
+app.use('/recipe', expressJwt({secret: process.env.SECRET}));
+
 app.use('/recipe', require('./routes/recipe'));
-// app.use('/auth', require('./routes/auth'));
+app.use('/auth', require('./routes/auth'));
+
+
 
 mongoose.connect('mongodb://localhost/recipe-database', (err) => {
     if (err) console.log(err);
