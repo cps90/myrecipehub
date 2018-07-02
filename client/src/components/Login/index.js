@@ -44,11 +44,10 @@ class LoginFormContainer extends Component {
         return (
             <LoginForm 
             handleChange={this.handleChange.bind(this)}
-            handleSubmit={this.handleSubmit.bing(this)}
+            handleSubmit={this.handleSubmit.bind(this)}
             {...this.state.inputs}/>
         )
     }
-
 }
 
 export default LoginFormContainer;

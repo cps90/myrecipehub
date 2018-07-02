@@ -9,6 +9,7 @@ import Desserts from './components/desserts/Desserts';
 import MainCourse from './components/main/MainCourse';
 import SideDishes from './components/sides/SideDishes';
 import New from './components/newrecipes/New';
+import Login from './components/Login';
 
 
 class App extends React.Component {
@@ -16,7 +17,8 @@ class App extends React.Component {
         return (
             <div>
                 <Switch>
-                    <Route exact path='/home' component={Home} />
+                    <Route path='/' component={Login} />
+                    <Route  path='/home' component={Home} />
                     <Route path='/category' component={Category} />
                     <Route path='/apps' component={Apps}/>
                     <Route path='/breakfast' component={Breakfast} />
