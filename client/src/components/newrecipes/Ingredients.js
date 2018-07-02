@@ -42,50 +42,50 @@ handleSubmit = e => {
     this.setState({
         name: '',
         directions: '',
-    
         ingredient: '',
         amount: '',
         unit: '',
-   
         directory: '',
         imgURL: ''
     })
 }
+
     render(){ 
+
         return(
             <div>
             <form onSubmit={ this.handleSubmit }>    
                     <input
                         type="text"
-                        value={this.state.name}
+                        value={ this.state.name }
                         name="name"
                         placeholder="name"
-                        onChange={this.handleChange} />
+                        onChange={ this.handleChange } />
                     <input 
                         type="text"
-                        value={this.state.ingredient}
+                        value={ this.state.ingredient }
                         name="ingredient"
                         placeholder="ingredient"
-                        onChange={this.handleChange} />
+                        onChange={ this.handleChange } />
                     <input  
                         type="number"
-                        value={this.state.amount}
+                        value={ this.state.amount }
                         name="amount"
                         placeholder="amount"
-                        onChange={this.handleChange} />
+                        onChange={ this.handleChange } />
                     <input 
                         type="text"
-                        value={this.state.unit}
+                        value={ this.state.unit }
                         name="unit"
                         placeholder="unit"
-                        onChange={this.handleChange} /> 
+                        onChange={ this.handleChange } /> 
                     <input 
                         type="text"
-                        value={this.state.directions}
+                        value={ this.state.directions }
                         name="directions"
                         placeholder="directions"
-                        onChange={this.handleChange} />
-                    <select name="directory" value={this.state.directory} onChange={this.handleChange}>
+                        onChange={ this.handleChange } />
+                    <select name="directory" value={ this.state.directory } onChange={this.handleChange}>
                         <option value="choices">Select</option>
                         <option value="breakfast">Breakfast</option>
                         <option value="appitizer">Appitizer</option>
@@ -101,4 +101,4 @@ handleSubmit = e => {
     }
 }
 
-export default connect(state => state, {addRecipe})(Ingredients)
+export default connect(state => state,{addRecipe})(Ingredients)

@@ -9,11 +9,10 @@ class New extends React.Component{
         this.props.getRecipes()
     }
     render() {
-        console.log(this.props)
         return(
             <div>
             <Home />
-                {this.props.recipe.map(add => 
+                {this.props.recipe.filter(app => app.directory === 'add').map(add => 
                 <Map key={add._id} id={add._id} name={add.name}
                 ingredients={add.ingredients} directions={add.directions}
                 directory={add.directory} imageURL={add.imageURL} />)}

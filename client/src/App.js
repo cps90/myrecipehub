@@ -12,9 +12,7 @@ import New from './components/newrecipes/New';
 
 
 class App extends React.Component {
-
     render() {
-        
         return (
             <div>
                 <Switch>
@@ -28,7 +26,6 @@ class App extends React.Component {
                     <Route path='/sidedishes' component={SideDishes} />
                     <Route path='/new' component={New} />
                 </Switch>
-
             </div>
         )
     }
