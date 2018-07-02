@@ -1,27 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getRecipes } from '../redux';
 import Recipe from './Recipe'
-
+import { getRecipes } from '../../redux';
+import Home from '../Home';
 
 class Apps extends React.Component {
     componentDidMount() {
-     this.props.getRecipes() 
-    }
-
-    render() {
-        console.log(this.props.recipe)
+        this.props.getRecipes() 
+       }
+    render() {   
         return (
             <div>
-              {this.props.recipe.map(meal => 
+            <Home />
+            {this.props.recipe.filter(find => find.directory === 'appitizer').map(meal =>
               <Recipe key={meal._id} id={meal._id} name={meal.name} 
               ingredients={meal.ingredients} directions={meal.directions} 
               imageURL={meal.imageURL} directory={meal.directory} /> )}
-
             </div>
         )
     }
 }
 
-
-export default connect(state => state,{ getRecipes })(Apps)
+export default connect(state => state, { getRecipes })(Apps)
