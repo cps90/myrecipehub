@@ -7,7 +7,7 @@ export const getRecipes = () => {
         axios.get('/recipe').then(response => {
             dispatch({
                 type: "GET_RECIPES",
-                recipe: response.data
+                recipes: response.data
             })
         })
     }
@@ -33,11 +33,17 @@ export const deleteRecipe = id => {
     }
 }
 
+const initialState = {
+    recipe: []
+}
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
     switch(action.type) {
-        case "GET_RECIPES":
-            return action.recipe
+        case "GET_RECIPES": 
+            return {
+            ...state,
+            recipe: action.recipes
+        }
         default: 
             return state
     }
