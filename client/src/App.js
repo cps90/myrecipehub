@@ -10,13 +10,17 @@ import MainCourse from './components/main/MainCourse';
 import SideDishes from './components/sides/SideDishes';
 import New from './components/newrecipes/New';
 import Login from './components/Login';
+import SignupFormContainer from './components/Signup/index.js';
+import Navbar from './components/Navbar'
 
 class App extends React.Component {
     render() {
         return (
             <div>
+                <Navbar />
                 <Switch>
                     <Route path='/' component={Login} />
+                    <Route path='/signup' component={SignupFormContainer} />
                     <Route  path='/home' component={Home} />
                     <Route path='/category' component={Category} />
                     <Route path='/apps' component={Apps}/>

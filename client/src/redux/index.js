@@ -14,7 +14,7 @@ recipeAxios.interceptors.request.use((config) => {
 
 export const getRecipes = () => {
     return dispatch => {
-        recipeAxios.get('/api/recipe').then(response => {
+        recipeAxios.get('/recipe').then(response => {
             dispatch({
                 type: "GET_RECIPES",
                 recipes: response.data
@@ -25,7 +25,7 @@ export const getRecipes = () => {
 
 export const addRecipe = newRecipe => {
     return dispatch => {
-        recipeAxios.post('/api/recipe', newRecipe).then(response => {
+        recipeAxios.post('/recipe', newRecipe).then(response => {
             dispatch(getRecipes())
         }).catch(err => {
             console.log(err)
@@ -35,7 +35,7 @@ export const addRecipe = newRecipe => {
 
 export const deleteRecipe = id => {
     return dispatch => {
-        recipeAxios.delete(`/api/recipe/${id}`).then(response => {
+        recipeAxios.delete(`/recipe/${id}`).then(response => {
             dispatch(getRecipes())
         }).catch(err => {
             console.log(err)

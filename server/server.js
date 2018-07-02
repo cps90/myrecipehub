@@ -14,8 +14,6 @@ app.use('/recipe', expressJwt({secret: process.env.SECRET}));
 app.use('/recipe', require('./routes/recipe'));
 app.use('/auth', require('./routes/auth'));
 
-
-
 mongoose.connect('mongodb://localhost/recipe-database', (err) => {
     if (err) console.log(err);
     console.log('connected to the database');

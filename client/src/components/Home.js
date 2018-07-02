@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
-class Home extends React.Component {
-    render() {
+
+function Home(props){
+    
+   
         return (
             <div>
                 <Link to="./apps">Appetizers </Link>
@@ -15,7 +17,7 @@ class Home extends React.Component {
                 <Link to="./New">New Recipe </Link>
             </div>
         )
-    }
+    
 }
 
 export default withRouter(connect(null)(Home))
