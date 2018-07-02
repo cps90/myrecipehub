@@ -9,6 +9,7 @@ class Apps extends React.Component {
         this.props.getRecipes() 
        }
     render() {   
+        console.log(this.props)
         return (
             <div>
             <Home />
