@@ -1,5 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import LoginForm from "./LoginForm"
+import {connect} from 'react-redux'
+import {login} from '../../redux/auth'
+
 
 class LoginFormContainer extends Component {
     constructor() {
@@ -35,8 +38,8 @@ class LoginFormContainer extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        //this is where to call the sign-in function from redux
-        alert(JSON.stringify(this.state.inputs));
+        this.props.login(this.state.inputs);
+        // alert(JSON.stringify(this.state.inputs));
         this.clearInputs();
     }
 
@@ -51,4 +54,4 @@ class LoginFormContainer extends Component {
 
 }
 
-export default LoginFormContainer;
+export default connect(null, {login})(LoginFormContainer);

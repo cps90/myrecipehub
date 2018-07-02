@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {signup} from "../../redux/auth"
 import SignupForm from './SignupForm'
 
 class SignupFormContainer extends Component {
@@ -37,8 +39,8 @@ class SignupFormContainer extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // This is where we will call our signup function from redux
-        alert(JSON.stringify(this.state.inputs));
+        this.props.signup(this.state.inputs);
+        // alert(JSON.stringify(this.state.inputs));
         this.clearInputs();
     }
 
@@ -53,6 +55,6 @@ class SignupFormContainer extends Component {
     
 }
 
-export default SignupFormContainer;
+export default connect(null, {signup})(SignupFormContainer);
 
 
