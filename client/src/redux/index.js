@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import axios from 'axios'
 import thunk from 'redux-thunk'
+import user from './auth'
 
 export const getRecipes = () => {
     return dispatch => {
@@ -36,6 +37,8 @@ export const deleteRecipe = id => {
 const initialState = {
     recipe: []
 }
+
+const reducer = combineReducers({user});
 
 const reducer = (state = initialState, action) => {
     switch(action.type) {
