@@ -1,8 +1,10 @@
 import React from 'react'
+import Navbar from '../Navbar'
 
 function LoginForm(props) {
     return (
         <div>
+            <Navbar />
             <form onSubmit={props.handleSubmit}>
                 <h3>Log In</h3>
                 <input 

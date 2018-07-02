@@ -36,7 +36,8 @@ export function login(credentials) {
 export function authenticate(user) {  
     return {
         type: "AUTHENTICATE",
-        user  // pass the user for storage in Redux store
+        user: "response.user" 
+        // pass the user for storage in Redux store
     }
 }
     

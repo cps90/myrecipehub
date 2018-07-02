@@ -11,7 +11,6 @@ import SideDishes from './components/sides/SideDishes';
 import New from './components/newrecipes/New';
 import Login from './components/Login';
 
-
 class App extends React.Component {
     render() {
         return (
