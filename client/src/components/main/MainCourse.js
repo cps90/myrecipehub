@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Home from '../Home';
 import Recipe from './Recipe';
-import { getRecipes } from '../../redux';
+import { getRecipes } from '../../redux/recipe';
 
 class MainCourse extends React.Component {
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addRecipe } from '../../redux'
+import { addRecipe } from '../../redux/recipe.js'
 
 class Ingredients extends React.Component{
     constructor() {

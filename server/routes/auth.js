@@ -9,7 +9,6 @@ authRouter.post("/signup", (req, res) => {
         if (existingUser !== null) {
             return res.status(400).send({success: false, err: "That username already exists!"});
         }
-        console.log(req.body)
         const newUser = new User(req.body);
         newUser.save((err, user) => {
             if (err) return res.status(500).send({success: false, err});
@@ -23,10 +22,10 @@ authRouter.post("/login", (req,res) => {
     User.findOne({username: req.body.username.toLowerCase()}, (err, user) => {
         if (err) return res.status(500).send(err);
         if (!user || user.password !== req.body.password) {
-            return res.status(403).send({success: false, err: "Email or password are is incorrect"})
-        }
-        const token = jwt.sign(user.toObject(), process.env.SECRET);
-        return res.send({token: token, user: user.toObject(), success: true})
+            return res.status(403).send({success: false, message: "Email or password are is incorrect"})
+        } 
+            const token = jwt.sign(user.toObject(), process.env.SECRET, {expiresIn: "24h"});
+            return res.send({token: token, user: user.toObject(), success: true, message: "heres your token!"})
     })
 })
 

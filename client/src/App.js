@@ -10,8 +10,10 @@ import MainCourse from './components/main/MainCourse';
 import SideDishes from './components/sides/SideDishes';
 import New from './components/newrecipes/New';
 import Login from './components/Login';
-import SignupFormContainer from './components/Signup/index.js';
+import Signup from './components/Signup/index.js';
 import Navbar from './components/Navbar'
+import { connect } from 'react-redux'
+import { verify } from './redux/auth'
 
 class App extends React.Component {
     render() {
@@ -19,9 +21,9 @@ class App extends React.Component {
             <div>
                 <Navbar />
                 <Switch>
-                    <Route exact path='/' component={SignupFormContainer} />    
+                    <Route exact path='/' component={Signup} />    
                     <Route path='/login' component={Login} />
-                    <Route  path='/home' component={Home} />
+                    <Route path='/home' component={Home} />
                     <Route path='/category' component={Category} />
                     <Route path='/apps' component={Apps}/>
                     <Route path='/breakfast' component={Breakfast} />
@@ -36,4 +38,4 @@ class App extends React.Component {
     }
 }
 
-export default App
+export default connect(null,{verify})(App)

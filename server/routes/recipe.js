@@ -11,7 +11,7 @@ recipeRouter.get('/', (req, res) => {
 
 recipeRouter.post('/', (req, res) => {
     const newRecipe = new Recipe(req.body);
-    newRecipe.user = req.user._id;
+    newRecipe.user = req.user;
     newRecipe.save((err, newRecipe) => {
         if (err) return res.status(500).send(err);
         return res.status(201).send(newRecipe);
@@ -21,7 +21,7 @@ recipeRouter.post('/', (req, res) => {
 recipeRouter.get('/:id', (req, res) => {
     Recipe.findOne({ _id: req.params.id, user: req.user._id }, (err, recipe) => {
         if(err) return res.status(500).send(err);
-        if (!recipe) return res.status(404).send("No recipes found.")
+        if (!recipe) return res.status(404).send("No recipe found.")
         return res.status(201).send(recipe);
     })
 })

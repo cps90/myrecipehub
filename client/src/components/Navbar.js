@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {logout} from '../redux/auth'
 
@@ -14,4 +14,4 @@ function Navbar(props) {
     )
 }
 
-export default withRouter(connect(null, {logout})(Navbar));  
+export default connect(null, {logout})(Navbar);  

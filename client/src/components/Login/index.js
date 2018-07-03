@@ -39,10 +39,7 @@ class LoginFormContainer extends Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.login(this.state.inputs);
-        // alert(JSON.stringify(this.state.inputs));
-        
         this.clearInputs();
-        
     }
 
     render() {

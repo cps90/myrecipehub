@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getRecipes } from '../../redux'
+import { getRecipes } from '../../redux/recipe'
 import Map from './Map'
 import Home from '../Home'
 
