@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Ingredients from './Ingredients';
-import { addRecipe } from '../../redux/recipe.js';
+
 
 class Map extends React.Component {
     render() {
@@ -17,4 +17,4 @@ class Map extends React.Component {
     }
 }
 
-export default connect(state => state, {addRecipe})(Map)
+export default connect(state => state)(Map)

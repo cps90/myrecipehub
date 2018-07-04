@@ -8,11 +8,11 @@ class Ingredients extends React.Component{
         this.state = { 
             name: '',
             directions: '',
-            ingredients: { 
+            ingredients: [{ 
             ingredient: '',
             amount: '',
             unit: ''
-            },
+            }],
             directory: '',
             imgURL: ''
         }
@@ -30,11 +30,11 @@ handleSubmit = e => {
     const newRecipe = {
         name: this.state.name,
         directions: this.state.directions,
-        ingredients: {
+        ingredients: [{
         ingredient: this.state.ingredient,
         amount: this.state.amount,
         unit: this.state.unit
-        },
+        }],
         directory: this.state.directory,
         imgURL: this.state.imgURL
     }
@@ -49,42 +49,48 @@ handleSubmit = e => {
         imgURL: ''
     })
 }
-
     render(){ 
-
         return(
             <div>
             <form onSubmit={ this.handleSubmit }>    
-                    <input
-                        type="text"
-                        value={ this.state.name }
-                        name="name"
-                        placeholder="name"
-                        onChange={ this.handleChange } />
-                    <input 
-                        type="text"
-                        value={ this.state.ingredient }
-                        name="ingredient"
-                        placeholder="ingredient"
-                        onChange={ this.handleChange } />
-                    <input  
-                        type="number"
-                        value={ this.state.amount }
-                        name="amount"
-                        placeholder="amount"
-                        onChange={ this.handleChange } />
-                    <input 
-                        type="text"
-                        value={ this.state.unit }
-                        name="unit"
-                        placeholder="unit"
-                        onChange={ this.handleChange } /> 
-                    <input 
-                        type="text"
-                        value={ this.state.directions }
-                        name="directions"
-                        placeholder="directions"
-                        onChange={ this.handleChange } />
+                    <div>
+                        <input
+                            type="text"
+                            value={ this.state.name }
+                            name="name"
+                            placeholder="name"
+                            onChange={ this.handleChange } />
+                    </div>        
+                    <div>
+                        <input 
+                            type="text"
+                            value={ this.state.ingredient }
+                            name="ingredient"
+                            placeholder="ingredient"
+                            onChange={ this.handleChange } />
+                        <input  
+                            type="number"
+                            value={ this.state.amount }
+                            name="amount"
+                            placeholder="amount"
+                            onChange={ this.handleChange } />
+                        <input 
+                            type="text"
+                            value={ this.state.unit }
+                            name="unit"
+                            placeholder="unit"
+                            onChange={ this.handleChange } /> 
+                        <button>Add another</button>    
+                    </div>
+                    <div>   
+                        <input 
+                            type="text"
+                            value={ this.state.directions }
+                            name="directions"
+                            placeholder="directions"
+                            onChange={ this.handleChange } />  
+                    </div>
+                    <div>        
                     <select name="directory" value={ this.state.directory } onChange={this.handleChange}>
                         <option value="choices">Select</option>
                         <option value="breakfast">Breakfast</option>
@@ -93,7 +99,8 @@ handleSubmit = e => {
                         <option value="main">Main</option>
                         <option value="dessert">dessert</option>
                         <option value="cocktail">cocktail</option>                        
-                    </select>            
+                    </select>
+                    </div>            
                     <button>Submit</button>
                 </form>
             </div>
@@ -101,4 +108,4 @@ handleSubmit = e => {
     }
 }
 
-export default connect(state => state,{addRecipe})(Ingredients)
+export default connect(state => state, {addRecipe})(Ingredients)
