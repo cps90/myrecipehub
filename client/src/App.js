@@ -17,33 +17,42 @@ import { connect } from 'react-redux';
 import { verify } from './redux/auth';
 
 class App extends React.Component {
+    
+    componentDidMount(){  
+        this.props.verify();
+    }
+
     render() {
-        const {isAuthenticated} = props;
+        const {isAuthenticated} = this.props;
         return (
             <div className="app-wrapper">
                 <Navbar />
-                <Switch>
-                    <Route exact path='/' render={ props => isAuthenticated ? 
-                        <Redirect to="/home"/> :
-                        <Signup {...props}/> 
-                    } />    
-                    <Route path='/login' render={ props => isAuthenticated ?
-                        <Redirect to="/home"/> :
-                        <Login {...props}/> 
-                    } />
-                    <ProtectedRoute path='/home' component={Home} />
-                    <ProtectedRoute path='/category' component={Category} />
-                    <ProtectedRoute path='/apps' component={Apps}/>
-                    <ProtectedRoute path='/breakfast' component={Breakfast} />
-                    <ProtectedRoute path='/cocktails' component={Cocktails} />
-                    <ProtectedRoute path='/desserts' component={Desserts} />
-                    <ProtectedRoute path='/maincourse' component={MainCourse} />
-                    <ProtectedRoute path='/sidedishes' component={SideDishes} />
-                    <ProtectedRoute path='/new' component={New} />
-                </Switch>
+                {loading ?
+                    <div>...Loading user data </div>
+                    :
+                    <Switch>
+                        <Route exact path='/' render={ props => isAuthenticated ? 
+                            <Redirect to="/home"/> :
+                            <Signup {...props}/> 
+                        } />    
+                        <Route path='/login' render={ props => isAuthenticated ?
+                            <Redirect to="/home"/> :
+                            <Login {...props}/> 
+                        } />
+                        <ProtectedRoute path='/home' component={Home} />
+                        <ProtectedRoute path='/category' component={Category} />
+                        <ProtectedRoute path='/apps' component={Apps}/>
+                        <ProtectedRoute path='/breakfast' component={Breakfast} />
+                        <ProtectedRoute path='/cocktails' component={Cocktails} />
+                        <ProtectedRoute path='/desserts' component={Desserts} />
+                        <ProtectedRoute path='/maincourse' component={MainCourse} />
+                        <ProtectedRoute path='/sidedishes' component={SideDishes} />
+                        <ProtectedRoute path='/new' component={New} />
+                    </Switch>
+                }   
             </div>
         )
     }
 }
 
-export default withRouter(connect(state => state.auth,{})(App));
+export default withRouter(connect(state => state.auth,{verify})(App));

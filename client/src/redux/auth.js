@@ -10,7 +10,8 @@ const initialState = {
         signup: "",
         login: ""
     },
-    isAuthenticated: false
+    isAuthenticated: false,
+    loading: true
 }
 
 export default function reducer(state = initialState, action) {  
@@ -20,7 +21,8 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 ...action.user,
                 isAuthenticated: true,
-                authErrCode: initialState.authErrCode
+                authErrCode: initialState.authErrCode,
+                loading: false
             }
         case "AUTH_ERROR":
             return {
@@ -28,10 +30,14 @@ export default function reducer(state = initialState, action) {
                 authErrCode: {
                     ...state.authErrCode,
                     [action.key]: action.errCode
-                }
+                },
+                loading: false
             }        
         case "LOGOUT":  
-            return initialState;   
+            return {
+                ...initialState,
+                loading: false 
+            }      
         default:
             return state;
     }
@@ -87,8 +93,7 @@ export function logout() {
     
 
 let verifyAxios = axios.create();
-
-verifyAxios.interceptors.request.use((config)=>{
+verifyAxios.interceptors.request.use((config) => {
     const token = localStorage.getItem('token');
     config.headers.Authorization = `Bearer ${token}`;
     return config;
@@ -106,10 +111,13 @@ function authError(key, errCode) {
 
 export function verify() {
     return dispatch => {
-    verifyAxios.get('/profile').then(response => {
-        dispatch(authenticate(response.data.user))
-    })
-}
+        verifyAxios.get('/profile')
+            .then(response => {
+                dispatch(authenticate(response.data.user))
+            }).catch(err => {
+                dispatch(authError("verify", err.response.status));
+            });
+    }
 }
 
 
