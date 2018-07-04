@@ -1,11 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 function Home(props){
-    
-   
         return (
             <div>
                 <Link to="./apps">Appetizers </Link>
@@ -14,10 +11,9 @@ function Home(props){
                 <Link to="./desserts">Desserts </Link>
                 <Link to="./maincourse">Main Course </Link>
                 <Link to="./sidedishes"> Side Dishes </Link>
-                <Link to="./New">New Recipe </Link>
+                <Link to="./new">New Recipe </Link>
             </div>
         )
-    
 }
 
-export default withRouter(connect(null)(Home))
+export default connect(null)(Home)
