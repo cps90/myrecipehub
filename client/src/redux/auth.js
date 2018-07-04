@@ -54,16 +54,15 @@ export function signup(userInfo) {
     return dispatch => {
         axios.post("/auth/signup", userInfo) 
             .then(response => {
-                axios.post("/auth/signup", userInfo)  
-                    .then(response => {
-                        const {token, user} = response.data
-                        localStorage.setItem("token", token)
-                        localStorage.setItem("user", JSON.stringify(user))
-                        dispatch(authenticate(user))
-                    })
+                console.log(response)
+                const {token, user} = response.data
+                localStorage.setItem("token", token)
+                localStorage.setItem("user", JSON.stringify(user))
+                dispatch(authenticate(user))
             }).catch(err => {
-                console.error(err);
-                dispatch(authError("signup", err.response.status));
+
+                console.dir(err);
+                dispatch(authError("signup", err.response.data.message));
             })
     }
 }
@@ -72,13 +71,14 @@ export function login(credentials) {
     return dispatch => {
         axios.post("/auth/login", credentials)
             .then(response => {
+                console.log(response)
                 const {token, user} = response.data;
                 localStorage.setItem("token", token)
                 localStorage.setItem("user", JSON.stringify(user))
                 dispatch(authenticate(user))
             }).catch(err => {
-                console.error(err);
-                dispatch(authError("login", err.response.status));
+                console.dir(err);
+                dispatch(authError("login", err.response.data.message));
             })
     }
 }
@@ -92,14 +92,6 @@ export function logout() {
 }
     
 
-let verifyAxios = axios.create();
-verifyAxios.interceptors.request.use((config) => {
-    const token = localStorage.getItem('token');
-    config.headers.Authorization = `Bearer ${token}`;
-    return config;
-})
-
-
 function authError(key, errCode) {  
     return {
         type: "AUTH_ERROR",
@@ -108,13 +100,21 @@ function authError(key, errCode) {
     }
 }
 
+let verifyAxios = axios.create();
+verifyAxios.interceptors.request.use((config) => {
+    const token = localStorage.getItem('token');
+    config.headers.Authorization = `Bearer ${token}`;
+    return config;
+})
 
 export function verify() {
     return dispatch => {
         verifyAxios.get('/profile')
             .then(response => {
+                console.log(response)
                 dispatch(authenticate(response.data.user))
             }).catch(err => {
+                console.dir(err)
                 dispatch(authError("verify", err.response.status));
             });
     }

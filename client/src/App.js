@@ -23,7 +23,8 @@ class App extends React.Component {
     }
 
     render() {
-        const {isAuthenticated} = this.props;
+        console.log(this.props)
+        const {isAuthenticated, loading} = this.props;
         return (
             <div className="app-wrapper">
                 <Navbar />

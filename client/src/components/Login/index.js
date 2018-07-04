@@ -43,17 +43,12 @@ class LoginFormContainer extends Component {
     }
 
     render() {
-        let authErrCode = this.props.authErrCode.login;
-        let errMsg = "";
-        if (authErrCode < 500 && authErrCode > 399) {
-            errMsg = "Invalid username or password!";
-        } else if (authErrCode > 499) {
-            errMsg = "Server error!";
-        }
+    
         return (
             <LoginForm 
             handleChange={this.handleChange.bind(this)}
             handleSubmit={this.handleSubmit.bind(this)}
+            errMsg={this.props.authErrCode.login}
             {...this.state.inputs}/>
         )
     }
