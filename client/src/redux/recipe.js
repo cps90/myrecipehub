@@ -20,6 +20,7 @@ function setRecipes(recipe) {
 export function getRecipes() {
     return dispatch => {
         recipeAxios.get(recipeUrl).then(response => {
+            console.log(response)
             dispatch(setRecipes(response.data));
         }).catch(err => {
             console.log(err);

@@ -1,13 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Recipe from './Recipe';
-import { getRecipes } from '../../redux/recipe.js';
 import Home from '../Home';
 
 class Breakfast extends React.Component {
-    componentDidMount() {
-        this.props.getRecipes()
-    }
+    
     render() {
         return (
             <div>
@@ -21,4 +18,4 @@ class Breakfast extends React.Component {
     }
 }
 
-export default connect(state => state, {getRecipes})(Breakfast)
+export default connect(state => state)(Breakfast)

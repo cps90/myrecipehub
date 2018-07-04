@@ -2,13 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Home from '../Home';
 import Recipe from './Recipe';
-import { getRecipes } from '../../redux/recipe';
 
 class MainCourse extends React.Component {
-
-    componentDidMount() {
-        this.props.getRecipes()
-    }
 
     render() {
         return (
@@ -24,4 +19,4 @@ class MainCourse extends React.Component {
     }
 }
 
-export default connect(state => state, {getRecipes})(MainCourse)
+export default connect(state => state)(MainCourse)

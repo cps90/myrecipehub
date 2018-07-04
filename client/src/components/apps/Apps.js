@@ -1,13 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Recipe from './Recipe'
-import { getRecipes } from '../../redux/recipe.js';
 import Home from '../Home';
 
 class Apps extends React.Component {
-    componentDidMount() {
-        this.props.getRecipes() 
-       }
+    
     render() {   
         console.log(this.props)
         return (
@@ -22,4 +19,4 @@ class Apps extends React.Component {
     }
 }
 
-export default connect(state => state, { getRecipes })(Apps)
+export default connect(state => state)(Apps)

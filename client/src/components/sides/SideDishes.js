@@ -1,14 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getRecipes } from '../../redux/recipe';
 import Home from '../Home';
 import Recipe from './Recipe';
 
 class SideDishes extends React.Component {
    
-    componentDidMount() {
-        this.props.getRecipes()
-    }
     render() {
         return (
             <div>
@@ -23,4 +19,4 @@ class SideDishes extends React.Component {
     }
 }
 
-export default connect(state => state, { getRecipes })(SideDishes)
+export default connect(state => state)(SideDishes)
