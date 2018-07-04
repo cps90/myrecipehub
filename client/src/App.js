@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
+import ProtectedRoute from './components/main/ProtectedRoute';
 import Home from './components/Home';
 import Category from './components/Category';
 import Apps from './components/apps/Apps';
@@ -11,31 +12,38 @@ import SideDishes from './components/sides/SideDishes';
 import New from './components/newrecipes/New';
 import Login from './components/Login';
 import Signup from './components/Signup/index.js';
-import Navbar from './components/Navbar'
-import { connect } from 'react-redux'
-import { verify } from './redux/auth'
+import Navbar from './components/Navbar';
+import { connect } from 'react-redux';
+import { verify } from './redux/auth';
 
 class App extends React.Component {
     render() {
+        const {isAuthenticated} = props;
         return (
-            <div>
+            <div className="app-wrapper">
                 <Navbar />
                 <Switch>
-                    <Route exact path='/' component={Signup} />    
-                    <Route path='/login' component={Login} />
-                    <Route path='/home' component={Home} />
-                    <Route path='/category' component={Category} />
-                    <Route path='/apps' component={Apps}/>
-                    <Route path='/breakfast' component={Breakfast} />
-                    <Route path='/cocktails' component={Cocktails} />
-                    <Route path='/desserts' component={Desserts} />
-                    <Route path='/maincourse' component={MainCourse} />
-                    <Route path='/sidedishes' component={SideDishes} />
-                    <Route path='/new' component={New} />
+                    <Route exact path='/' render={ props => isAuthenticated ? 
+                        <Redirect to="/home"/> :
+                        <Signup {...props}/> 
+                    } />    
+                    <Route path='/login' render={ props => isAuthenticated ?
+                        <Redirect to="/home"/> :
+                        <Login {...props}/> 
+                    } />
+                    <ProtectedRoute path='/home' component={Home} />
+                    <ProtectedRoute path='/category' component={Category} />
+                    <ProtectedRoute path='/apps' component={Apps}/>
+                    <ProtectedRoute path='/breakfast' component={Breakfast} />
+                    <ProtectedRoute path='/cocktails' component={Cocktails} />
+                    <ProtectedRoute path='/desserts' component={Desserts} />
+                    <ProtectedRoute path='/maincourse' component={MainCourse} />
+                    <ProtectedRoute path='/sidedishes' component={SideDishes} />
+                    <ProtectedRoute path='/new' component={New} />
                 </Switch>
             </div>
         )
     }
 }
 
-export default connect(null,{verify})(App)
+export default withRouter(connect(state => state.auth,{})(App));

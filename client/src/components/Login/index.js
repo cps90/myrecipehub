@@ -43,6 +43,13 @@ class LoginFormContainer extends Component {
     }
 
     render() {
+        let authErrCode = this.props.authErrCode.login;
+        let errMsg = "";
+        if (authErrCode < 500 && authErrCode > 399) {
+            errMsg = "Invalid username or password!";
+        } else if (authErrCode > 499) {
+            errMsg = "Server error!";
+        }
         return (
             <LoginForm 
             handleChange={this.handleChange.bind(this)}
@@ -52,4 +59,4 @@ class LoginFormContainer extends Component {
     }
 }
 
-export default connect(null, {login})(LoginFormContainer);
+export default connect(state => state.auth, {login})(LoginFormContainer);

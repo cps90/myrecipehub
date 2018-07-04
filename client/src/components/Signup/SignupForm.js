@@ -21,6 +21,7 @@ function SignupForm(props) {
                        type="password"
                        placeholder="Password"/>
                 <button type="submit">Create Account</button>
+                <p>{props.errMsg}</p>
             </form>
         </div>
     )

@@ -1,8 +1,15 @@
 import axios from "axios";
 
 const initialState = {  
-    username: "",
-    isAdmin: false,
+    recipes: [],
+    user: {
+        username: "",
+        isAdmin: false,
+    },
+    authErrCode: {
+        signup: "",
+        login: ""
+    },
     isAuthenticated: false
 }
 
@@ -12,8 +19,17 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 ...action.user,
-                isAuthenticated: true
+                isAuthenticated: true,
+                authErrCode: initialState.authErrCode
             }
+        case "AUTH_ERROR":
+            return {
+                ...state,
+                authErrCode: {
+                    ...state.authErrCode,
+                    [action.key]: action.errCode
+                }
+            }        
         case "LOGOUT":  
             return initialState;   
         default:
@@ -41,6 +57,7 @@ export function signup(userInfo) {
                     })
             }).catch(err => {
                 console.error(err);
+                dispatch(authError("signup", err.response.status));
             })
     }
 }
@@ -53,6 +70,9 @@ export function login(credentials) {
                 localStorage.setItem("token", token)
                 localStorage.setItem("user", JSON.stringify(user))
                 dispatch(authenticate(user))
+            }).catch(err => {
+                console.error(err);
+                dispatch(authError("login", err.response.status));
             })
     }
 }
@@ -66,10 +86,6 @@ export function logout() {
 }
     
 
-
-
-
-
 let verifyAxios = axios.create();
 
 verifyAxios.interceptors.request.use((config)=>{
@@ -79,7 +95,13 @@ verifyAxios.interceptors.request.use((config)=>{
 })
 
 
-
+function authError(key, errCode) {  
+    return {
+        type: "AUTH_ERROR",
+        key,
+        errCode
+    }
+}
 
 
 export function verify() {

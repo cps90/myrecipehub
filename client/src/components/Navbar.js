@@ -4,14 +4,15 @@ import { connect } from 'react-redux'
 import {logout} from '../redux/auth'
 
 function Navbar(props) {  
+    const { isAuthenticated } = props;
     return (
         <div className="navbar-wrapper">
-            <Link to="/">Sign Up</Link> 
-            <Link to="/login">Login</Link> 
-            <Link to="/home">Home</Link> 
-            <button onClick={props.logout}>Logout</button>
+            {!isAuthenticated && <div className="nav-link"><Link to="/">Signup</Link></div>} 
+            {!isAuthenticated && <div className="nav-link"><Link to="/login">Login</Link></div>} 
+            {isAuthenticated && <div className="nav-link"><Link to="/home">Home</Link></div>} 
+            {isAuthenticated && <div className="nav-link"><button onClick={props.logout}>Logout</button></div>}
         </div>
     )
 }
 
-export default connect(null, {logout})(Navbar);  
+export default connect(state => state.auth, {logout})(Navbar);  
