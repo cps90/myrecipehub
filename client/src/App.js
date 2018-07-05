@@ -15,7 +15,7 @@ import Signup from './components/Signup/index.js';
 import Navbar from './components/Navbar';
 import { connect } from 'react-redux';
 import { verify } from './redux/auth';
-import { getRecipes } from './redux/recipe'
+import { getRecipes } from './redux/recipe';
 
 class App extends React.Component {
     
@@ -58,4 +58,4 @@ class App extends React.Component {
     }
 }
 
-export default withRouter(connect(state => state.auth,{verify, getRecipes})(App));
+export default withRouter(connect(state => state.auth, {verify, getRecipes})(App));

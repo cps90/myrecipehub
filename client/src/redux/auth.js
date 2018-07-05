@@ -54,13 +54,11 @@ export function signup(userInfo) {
     return dispatch => {
         axios.post("/auth/signup", userInfo) 
             .then(response => {
-                console.log(response)
                 const {token, user} = response.data
                 localStorage.setItem("token", token)
                 localStorage.setItem("user", JSON.stringify(user))
                 dispatch(authenticate(user))
             }).catch(err => {
-
                 console.dir(err);
                 dispatch(authError("signup", err.response.data.message));
             })

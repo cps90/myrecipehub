@@ -7,12 +7,11 @@ recipeAxios.interceptors.request.use(config => {
     return config;
 })
 
-const SET_RECIPES = "SET_RECIPES";
 const recipeUrl = '/recipe';
 
 function setRecipes(recipe) {
     return {
-        type: SET_RECIPES,
+        type: "SET_RECIPES",
         recipe
     }
 }
@@ -20,7 +19,6 @@ function setRecipes(recipe) {
 export function getRecipes() {
     return dispatch => {
         recipeAxios.get(recipeUrl).then(response => {
-            console.log(response)
             dispatch(setRecipes(response.data));
         }).catch(err => {
             console.log(err);
@@ -29,6 +27,7 @@ export function getRecipes() {
 }
 
 export function addRecipe(recipe) {
+    console.log(recipe)
     return dispatch => {
         recipeAxios.post(recipeUrl, recipe)
             .then(response => {
@@ -67,10 +66,10 @@ export function deleteRecipe(id) {
 
 const initialRecipes = [];
 
-export default function recipeReducer(recipes = initialRecipes, action) {
+export default function reducer(recipes = initialRecipes, action) {
     switch(action.type) {
         case "SET_RECIPES":
-            return [...action.recipes]
+            return action.recipe
         default: 
             return recipes
     }

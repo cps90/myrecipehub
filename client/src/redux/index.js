@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
-import auth from './auth'
-import recipe from './recipe'
+import auth from './auth.js'
+import recipe from './recipe.js'
 
 const reducer = combineReducers({
     auth,

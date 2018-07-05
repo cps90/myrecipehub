@@ -6,7 +6,6 @@ import Home from '../Home';
 class Apps extends React.Component {
     
     render() {   
-        console.log(this.props)
         return (
             <div>
             <Home />
