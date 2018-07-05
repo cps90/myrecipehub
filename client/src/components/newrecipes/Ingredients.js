@@ -79,8 +79,7 @@ handleSubmit = e => {
                             value={ this.state.unit }
                             name="unit"
                             placeholder="unit"
-                            onChange={ this.handleChange } /> 
-                        <button>Add another</button>    
+                            onChange={ this.handleChange } />  
                     </div>
                     <div>   
                         <input 
