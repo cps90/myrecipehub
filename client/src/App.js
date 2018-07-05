@@ -16,6 +16,7 @@ import Navbar from './components/Navbar';
 import { connect } from 'react-redux';
 import { verify } from './redux/auth';
 import { getRecipes } from './redux/recipe';
+import './styles.css';
 
 class App extends React.Component {
     
