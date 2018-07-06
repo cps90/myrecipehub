@@ -1,7 +1,7 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Category from './components/Category';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
+import ProtectedRoute from './components/main/ProtectedRoute';
+import Home from './components/Nav';
 import Apps from './components/apps/Apps';
 import Breakfast from './components/breakfast/Breakfast';
 import Cocktails from './components/cocktails/Cocktails';
@@ -9,26 +9,52 @@ import Desserts from './components/desserts/Desserts';
 import MainCourse from './components/main/MainCourse';
 import SideDishes from './components/sides/SideDishes';
 import New from './components/newrecipes/New';
-
+import Login from './components/Login';
+import Signup from './components/Signup/index.js';
+import Navbar from './components/Navbar';
+import { connect } from 'react-redux';
+import { verify } from './redux/auth';
+import { getRecipes } from './redux/recipe';
+import './styles.css';
 
 class App extends React.Component {
+    
+    componentDidMount(){  
+        this.props.verify();
+        this.props.getRecipes();
+    }
+
     render() {
+        console.log(this.props)
+        const {isAuthenticated, loading} = this.props;
         return (
-            <div>
-                <Switch>
-                    <Route exact path='/home' component={Home} />
-                    <Route path='/category' component={Category} />
-                    <Route path='/apps' component={Apps}/>
-                    <Route path='/breakfast' component={Breakfast} />
-                    <Route path='/cocktails' component={Cocktails} />
-                    <Route path='/desserts' component={Desserts} />
-                    <Route path='/maincourse' component={MainCourse} />
-                    <Route path='/sidedishes' component={SideDishes} />
-                    <Route path='/new' component={New} />
-                </Switch>
+            <div className="app-wrapper">
+                <Navbar />
+                {loading ?
+                    <div>...Loading user data </div>
+                    :
+                    <Switch>
+                        <Route exact path='/' render={ props => isAuthenticated ? 
+                            <Redirect to="/home"/> :
+                            <Signup {...props}/> 
+                        } />    
+                        <Route path='/login' render={ props => isAuthenticated ?
+                            <Redirect to="/home"/> :
+                            <Login {...props}/> 
+                        } />
+                        <ProtectedRoute path='/home' component={Home} />
+                        <ProtectedRoute path='/apps' component={Apps}/>
+                        <ProtectedRoute path='/breakfast' component={Breakfast} />
+                        <ProtectedRoute path='/cocktails' component={Cocktails} />
+                        <ProtectedRoute path='/desserts' component={Desserts} />
+                        <ProtectedRoute path='/maincourse' component={MainCourse} />
+                        <ProtectedRoute path='/sidedishes' component={SideDishes} />
+                        <ProtectedRoute path='/new' component={New} />
+                    </Switch>
+                }   
             </div>
         )
     }
 }
 
-export default App
+export default withRouter(connect(state => state.auth, {verify, getRecipes})(App));

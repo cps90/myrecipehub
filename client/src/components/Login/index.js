@@ -1,5 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import LoginForm from "./LoginForm"
+import {connect} from 'react-redux'
+import {login} from '../../redux/auth'
+
 
 class LoginFormContainer extends Component {
     constructor() {
@@ -35,20 +38,20 @@ class LoginFormContainer extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        //this is where to call the sign-in function from redux
-        alert(JSON.stringify(this.state.inputs));
+        this.props.login(this.state.inputs);
         this.clearInputs();
     }
 
     render() {
+    
         return (
             <LoginForm 
             handleChange={this.handleChange.bind(this)}
-            handleSubmit={this.handleSubmit.bing(this)}
+            handleSubmit={this.handleSubmit.bind(this)}
+            errMsg={this.props.authErrCode.login}
             {...this.state.inputs}/>
         )
     }
-
 }
 
-export default LoginFormContainer;
+export default connect(state => state.auth, {login})(LoginFormContainer);

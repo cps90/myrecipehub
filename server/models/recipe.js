@@ -8,7 +8,7 @@ const recipeSchema = new Schema({
     },
     ingredients: [
         {
-            ingredient: {
+            name: {
                 type: String,
                 required: true
             },
@@ -38,7 +38,6 @@ const recipeSchema = new Schema({
         ref: "User",
         required: true
     }
-
 })
 
 module.exports = mongoose.model("Recipe", recipeSchema)

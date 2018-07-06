@@ -1,53 +1,13 @@
-import { createStore, applyMiddleware } from 'redux'
-import axios from 'axios'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
-export const getRecipes = () => {
-    return dispatch => {
-        axios.get('/recipe').then(response => {
-            dispatch({
-                type: "GET_RECIPES",
-                recipes: response.data
-            })
-        })
-    }
-}
+import auth from './auth.js'
+import recipe from './recipe.js'
 
-export const addRecipe = newRecipe => {
-    return dispatch => {
-        axios.post('/recipe', newRecipe).then(response => {
-            dispatch(getRecipes())
-        }).catch(err => {
-            console.log(err)
-        })
-    }
-}
-
-export const deleteRecipe = id => {
-    return dispatch => {
-        axios.delete(`/recipe/${id}`).then(response => {
-            dispatch(getRecipes())
-        }).catch(err => {
-            console.log(err)
-        })
-    }
-}
-
-const initialState = {
-    recipe: []
-}
-
-const reducer = (state = initialState, action) => {
-    switch(action.type) {
-        case "GET_RECIPES": 
-            return {
-            ...state,
-            recipe: action.recipes
-        }
-        default: 
-            return state
-    }
-}
+const reducer = combineReducers({
+    auth,
+    recipe
+});
 
 export default createStore(
     reducer,
