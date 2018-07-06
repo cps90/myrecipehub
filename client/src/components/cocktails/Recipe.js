@@ -17,7 +17,7 @@ class Recipe extends React.Component{
     render() {
         return(
             <div>
-                <button onClick={ this.toggle }>{ this.props.name }</button>
+                <button onClick={ this.toggle } className="toggleButton">{ this.props.name }</button>
                     {this.state.isToggled
                         ?
                         <div>

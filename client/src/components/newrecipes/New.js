@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import ImageUploader from 'react-images-uploader'
 import { addRecipe } from '../../redux/recipe.js'
-import Home from '../Nav'
+import Nav from '../Home'
+import Dropzone from 'react-dropzone'
 
 class Ingredients extends React.Component{
     constructor() {
@@ -49,8 +51,7 @@ class Ingredients extends React.Component{
             ingredient: this.state.ingredient,
             amount: this.state.amount,
             unit: this.state.unit,
-            directory: this.state.directory,
-            imgURL: this.state.imgURL
+            directory: this.state.directory
         }
         this.props.addRecipe(newRecipe)
         this.setState({
@@ -78,11 +79,13 @@ class Ingredients extends React.Component{
             ]
         }))
     }
-
+//    onDrop = (acceptedFiles, rejectedFiled) => {
+//        setState({imgURL: acceptedFiles})
+//    }
     render(){ 
         return(
             <div>
-            <Home />
+            <Nav />
             <form onSubmit={this.handleSubmit}>    
                 <div>
                     <input
@@ -90,7 +93,8 @@ class Ingredients extends React.Component{
                         value={ this.state.name }
                         name="name"
                         placeholder="name"
-                        onChange={ this.handleChange } />
+                        onChange={ this.handleChange } 
+                        />
                 </div>
                 <div className="ingredients">
                     {this.state.ingredients.map((ingredient, index) => {
@@ -101,19 +105,22 @@ class Ingredients extends React.Component{
                                     value={ ingredient.name }
                                     name="name"
                                     placeholder="ingredient"
-                                    onChange={ (e) => this.handleIngredientChange(index, e) } />
+                                    onChange={ (e) => this.handleIngredientChange(index, e) } 
+                                    />
                                 <input  
                                     type="number"
                                     value={ ingredient.amount }
                                     name="amount"
                                     placeholder="amount"
-                                    onChange={ (e) => this.handleIngredientChange(index, e) } />
+                                    onChange={ (e) => this.handleIngredientChange(index, e) } 
+                                    />
                                 <input 
                                     type="text"
                                     value={ ingredient.unit }
                                     name="unit"
                                     placeholder="unit"
-                                    onChange={ (e) => this.handleIngredientChange(index, e) } />
+                                    onChange={ (e) => this.handleIngredientChange(index, e) } 
+                                    />
                                 {this.state.ingredients.length -1 === index &&  <button onClick={this.addIngredients}>+</button>}
                             </div>
                             )
@@ -136,7 +143,11 @@ class Ingredients extends React.Component{
                         <option value="dessert">dessert</option>
                         <option value="cocktail">cocktail</option>                        
                     </select>
-                    </div>            
+                    <input 
+                        type="file"
+                        onChange={this.onChange} 
+                         />
+                    </div>     
                     <button>Submit</button>
                 </form>
             </div>

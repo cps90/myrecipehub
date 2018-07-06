@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Home from '../Nav';
+import Home from '../Home';
 import Recipe from './Recipe';
 
 class Cocktails extends React.Component {

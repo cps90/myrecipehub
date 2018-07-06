@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Ingredients from './Ingredients'
+import { editRecipe } from '../../redux/recipe'
 
 class Recipe extends React.Component {
     constructor(){
         super();
-        this.state={isToggled:false}
+        this.state={isToggled:false, imageURL: ''}
     }
     toggle = () => {
         this.setState(prevState => {
@@ -14,10 +15,14 @@ class Recipe extends React.Component {
             }
         })
     }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        
+    }
     render() {
         return (
             <div>
-            <button onClick={this.toggle}>{this.props.name}</button>
+            <button onClick={this.toggle} className="toggleButton">{this.props.name}</button>
                 {this.state.isToggled 
                 ? 
                     <div>
@@ -41,4 +46,4 @@ class Recipe extends React.Component {
     }
 }
 
-export default connect(state => state)(Recipe)
+export default connect(state => state, {editRecipe})(Recipe)
