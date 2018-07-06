@@ -88,7 +88,6 @@ export function logout() {
         type: "LOGOUT"
     }
 }
-    
 
 function authError(key, errCode) {  
     return {
@@ -102,6 +101,7 @@ let verifyAxios = axios.create();
 verifyAxios.interceptors.request.use((config) => {
     const token = localStorage.getItem('token');
     config.headers.Authorization = `Bearer ${token}`;
+    console.log(token)
     return config;
 })
 
@@ -117,8 +117,3 @@ export function verify() {
             });
     }
 }
-
-
-    
-
-    

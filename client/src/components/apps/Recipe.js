@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Ingredients from './Ingredients'
-import { editRecipe } from '../../redux/recipe'
 
 class Recipe extends React.Component {
     constructor(){
         super();
-        this.state={isToggled:false, imageURL: ''}
+        this.state={isToggled:false}
     }
+
     toggle = () => {
         this.setState(prevState => {
             return {
@@ -15,10 +15,7 @@ class Recipe extends React.Component {
             }
         })
     }
-    handleSubmit = (e) => {
-        e.preventDefault();
-        
-    }
+
     render() {
         return (
             <div>
@@ -26,17 +23,18 @@ class Recipe extends React.Component {
                 {this.state.isToggled 
                 ? 
                     <div>
-                        <p> {this.props.name} </p>
-                        <p>{this.props.directions}</p>
-                        <p>{this.props.directory}</p>
-                        <p>{this.props.imageURL}</p>
+                        <p> Recipe Title: {this.props.name} </p>
+                        <p> Directions: {this.props.directions}</p>
+                        <p> Directory: {this.props.directory}</p>
+                         Amount, Unit, Ingredient:
                             {this.props.ingredients.map(info => 
                             <Ingredients 
                                 key={info._id} 
                                 id={info._id} 
                                 name={info.name}
                                 amount={info.amount} 
-                                unit={info.unit}/>
+                                unit={info.unit}
+                                />
                             )}
                     </div>
                     : null 
@@ -46,4 +44,4 @@ class Recipe extends React.Component {
     }
 }
 
-export default connect(state => state, {editRecipe})(Recipe)
+export default connect(state => state)(Recipe)

@@ -1,9 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import ImageUploader from 'react-images-uploader'
 import { addRecipe } from '../../redux/recipe.js'
-import Nav from '../Home'
-import Dropzone from 'react-dropzone'
+import Home from '../Home'
 
 class Ingredients extends React.Component{
     constructor() {
@@ -79,13 +77,11 @@ class Ingredients extends React.Component{
             ]
         }))
     }
-//    onDrop = (acceptedFiles, rejectedFiled) => {
-//        setState({imgURL: acceptedFiles})
-//    }
+
     render(){ 
         return(
             <div>
-            <Nav />
+            <Home />
             <form onSubmit={this.handleSubmit}>    
                 <div>
                     <input
@@ -143,10 +139,6 @@ class Ingredients extends React.Component{
                         <option value="dessert">dessert</option>
                         <option value="cocktail">cocktail</option>                        
                     </select>
-                    <input 
-                        type="file"
-                        onChange={this.onChange} 
-                         />
                     </div>     
                     <button>Submit</button>
                 </form>

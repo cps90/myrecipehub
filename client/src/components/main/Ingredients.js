@@ -5,9 +5,7 @@ class Ingredients extends React.Component {
     render() {
         return (
             <div>
-                <p>{this.props.ingredient}</p>
-                <p>{ this.props.amount }</p>
-                <p>{ this.props.unit }</p>
+                <p>  { this.props.amount }, { this.props.unit }, {this.props.ingredient} </p>
             </div>
         )
     }
