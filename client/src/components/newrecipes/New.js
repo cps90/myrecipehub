@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addRecipe } from '../../redux/recipe.js'
-import Home from '../Home'
+import Home from '../Nav'
 
 class Ingredients extends React.Component{
     constructor() {

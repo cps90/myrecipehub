@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import ProtectedRoute from './components/main/ProtectedRoute';
-import Home from './components/Home';
+import Home from './components/Nav';
 import Apps from './components/apps/Apps';
 import Breakfast from './components/breakfast/Breakfast';
 import Cocktails from './components/cocktails/Cocktails';

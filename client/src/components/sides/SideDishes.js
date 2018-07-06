@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Home from '../Home';
+import Home from '../Nav';
 import Recipe from './Recipe';
 
 class SideDishes extends React.Component {

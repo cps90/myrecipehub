@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Recipe from './Recipe';
-import Home from '../Home';
+import Home from '../Nav';
 
 class Breakfast extends React.Component {
     
