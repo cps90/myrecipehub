@@ -8,7 +8,7 @@ class SideDishes extends React.Component {
     render() {
         return (
             <div>
-                <Home />
+                {/* <Home /> */}
                 {this.props.recipe.filter(find => find.directory === 'sides').map(sides =>
                     <Recipe 
                         key={sides._id} 

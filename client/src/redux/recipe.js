@@ -32,8 +32,7 @@ export function addRecipe(recipe) {
         recipeAxios.post(recipeUrl, recipe)
             .then(response => {
                 dispatch(getRecipes());
-            })
-            .catch(err => {
+            }).catch(err => {
                 console.error(err);
             })
     }
@@ -45,8 +44,7 @@ export function editRecipe(id, recipe) {
         recipeAxios.put(recipeUrl + id, recipe)
             .then(response => {
                 dispatch(getRecipes());
-            })
-            .catch(err => {
+            }).catch(err => {
                 console.error(err);
             })
     }
@@ -57,8 +55,7 @@ export function deleteRecipe(id) {
         recipeAxios.delete(recipeUrl + id)
             .then(response => {
                 dispatch(getRecipes());
-            })
-            .catch(err => {
+            }).catch(err => {
                 console.error(err);
             })
     }

@@ -8,7 +8,7 @@ class Breakfast extends React.Component {
     render() {
         return (
             <div>
-                <Home />
+                {/* <Home /> */}
                     {this.props.recipe.filter(find => find.directory === 'breakfast').map(info =>
                         <Recipe key={info._id} 
                             id={info._id} 
@@ -23,4 +23,4 @@ class Breakfast extends React.Component {
     }
 }
 
-export default connect(state => state)(Breakfast)
+export default connect(state => state, {})(Breakfast)
