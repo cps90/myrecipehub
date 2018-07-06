@@ -21,10 +21,10 @@ class Recipe extends React.Component{
                     {this.state.isToggled
                     ?
                         <div>
-                            <p> { this.props.name } </p>
-                            <p>{ this.props.directions }</p>
-                            <p>{ this.props.directory }</p>
-                            <p>{ this.props.imgURL }</p>
+                            <p> Recipe Title:{ this.props.name } </p>
+                            <p> Directions:{ this.props.directions }</p>
+                            <p> Directory:{ this.props.directory }</p>
+                             Amount, Unit, Ingredient:
                                 {this.props.ingredients.map(info => 
                                     <Ingredients 
                                         key={info._id} 
