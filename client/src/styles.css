@@ -2,23 +2,33 @@
     font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
 }
-
-.navbar-wrapper {
+body {
+    background: #f8f8f8;
+}
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.navbar .wrap {
     display: flex;
+    align-items: center;
     justify-content: space-around;
     height: 40px;
-    border-bottom: 1px solid black;
-    align-items: center
+    margin: 0 auto;
+    max-width: 320px;
 }
 
 .nav-link {
-    color: black;
+    color: #666;
     text-decoration: none;
+}
+.nav-link:hover {
+    color: #101010;
 }
 
 .logout-button {
     border: none;
-    background-color: none;
+    background-color: transparent;
     font-size: 1em;
 
 }
@@ -45,4 +55,95 @@
     margin: auto;
     background-color: #F1F1F1;
     border-radius: 5px;
+}
+
+.homepage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    margin: 50px auto 50px auto;
+    max-width: 260px;
+    
+}
+
+.homelinks {
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    width: 120px;
+    line-height: 120px;
+    text-align: center;
+    border: 1px solid #aaa;
+    margin: 0 auto;
+    background-size: 120px 120px;
+    position: relative;
+}
+.homelinks:before {
+    border-radius: 4px;
+    content: "";
+    background: #f2f2f2;
+    opacity: .75;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: opacity .2s ease-in-out;
+    z-index: 1;
+}
+.homelinks:hover:before {
+    opacity: 0.5;
+}
+.homelinks span {
+    position: relative;
+    z-index: 2;
+}
+
+.appetizers {
+    background-image: url("./thumbs/appetizer-thumb.jpg"); 
+}
+
+.breakfast {
+    background-image: url("./thumbs/breakfast-thumb.jpg"); 
+    
+}   
+
+.cocktails {
+    background-image: url("./thumbs/cocktail-thumb.jpg")
+}
+
+.desserts {
+    background-image: url("./thumbs/dessert-thumb.jpg")
+}
+
+.maincourse {
+    background-image: url("./thumbs/main-course-thumb.jpg")
+}
+
+.sides {
+    background-image: url("./thumbs/side-dish-thumb.jpg")
+}
+
+.new-recipe {
+    background: #ED4433;
+    color: #fff;
+    color: fff;
+    text-decoration: none;
+    width: 120px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    padding: 10px 0;
+    transition: background-color .2s ease-in-out;
+}
+.new-recipe:hover {
+    background-color: #333;
+}
+
+.logo {
+    text-align: center;
+    background-color: #ED4433;
+    color: #fff;
+    padding: 20px;
+    margin: 0px;
 }
