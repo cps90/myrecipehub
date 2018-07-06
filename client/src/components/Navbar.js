@@ -10,7 +10,7 @@ function Navbar(props) {
             {!isAuthenticated && <div><Link className="nav-link" to="/">Signup</Link></div>} 
             {!isAuthenticated && <div><Link className="nav-link" to="/login">Login</Link></div>} 
             {isAuthenticated && <div><Link className="nav-link" to="/home">Home</Link></div>} 
-            {isAuthenticated && <div><button className="nav-link" onClick={props.logout}>Logout</button></div>}
+            {isAuthenticated && <div><button className="nav-link logout-button" onClick={props.logout}>Logout</button></div>}
         </div>
     )
 }

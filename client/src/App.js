@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import ProtectedRoute from './components/main/ProtectedRoute';
 import Home from './components/Nav';
-import Category from './components/Category';
 import Apps from './components/apps/Apps';
 import Breakfast from './components/breakfast/Breakfast';
 import Cocktails from './components/cocktails/Cocktails';
@@ -44,7 +43,6 @@ class App extends React.Component {
                             <Login {...props}/> 
                         } />
                         <ProtectedRoute path='/home' component={Home} />
-                        <ProtectedRoute path='/category' component={Category} />
                         <ProtectedRoute path='/apps' component={Apps}/>
                         <ProtectedRoute path='/breakfast' component={Breakfast} />
                         <ProtectedRoute path='/cocktails' component={Cocktails} />
