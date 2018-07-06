@@ -8,7 +8,7 @@ class MainCourse extends React.Component {
     render() {
         return (
             <div>
-                <Home />
+                {/* <Home /> */}
                     {this.props.recipe.filter(find => find.directory === 'main').map(main =>
                         <Recipe 
                             key={main._id} 

@@ -8,7 +8,7 @@ class Desserts extends React.Component {
     render() {
         return (
             <div>
-                <Home />
+                {/* <Home /> */}
                     {this.props.recipe.filter(find => find.directory === 'dessert').map(dessert =>
                         <Recipe 
                             key={dessert._id} 

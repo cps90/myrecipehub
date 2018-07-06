@@ -29,6 +29,7 @@ class App extends React.Component {
         const {isAuthenticated, loading} = this.props;
         return (
             <div className="app-wrapper">
+                <h1 className="logo">RecipeHub</h1>
                 <Navbar />
                 {loading ?
                     <div>...Loading user data </div>

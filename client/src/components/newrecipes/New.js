@@ -81,7 +81,7 @@ class Ingredients extends React.Component{
     render(){ 
         return(
             <div>
-            <Home />
+            {/* <Home /> */}
             <form onSubmit={this.handleSubmit}>    
                 <div>
                     <input

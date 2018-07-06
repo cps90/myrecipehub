@@ -5,14 +5,17 @@ import { Link } from 'react-router-dom';
 function Home(props){
         return (
             <div>
-                <Link to="./apps" className="link">Appetizers </Link>
-                <Link to="./breakfast" className="link">Breakfast </Link>
-                <Link to="./cocktails" className="link">Cocktails </Link>
-                <Link to="./desserts" className="link">Desserts </Link>
-                <Link to="./maincourse" className="link">Main Course </Link>
-                <Link to="./sidedishes" className="link"> Side Dishes </Link>
-                <Link to="./new" className="link">New Recipe </Link>
-            </div>
+                <div className="homepage">
+                        <Link className="homelinks appetizers" to="/apps"><span>Appetizers</span></Link>
+                        <Link className="homelinks breakfast" to="/breakfast"><span>Breakfast</span></Link>
+                        <Link className="homelinks cocktails" to="/cocktails"><span>Cocktails</span></Link>
+                        <Link className="homelinks desserts" to="/desserts"><span>Desserts</span></Link>
+                        <Link className="homelinks maincourse" to="/maincourse"><span>Main Course</span></Link>
+                        <Link className="homelinks sides" to="/sidedishes"><span>Side Dishes</span></Link> 
+                </div> 
+                <Link className="new-recipe" to="./new">New Recipe </Link>  
+            </div>    
+          
         )
 }
 
