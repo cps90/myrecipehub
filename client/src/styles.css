@@ -22,8 +22,10 @@ body {
     color: #666;
     text-decoration: none;
 }
+
 .nav-link:hover {
     color: #101010;
+    cursor: pointer;
 }
 
 .logout-button {
@@ -70,6 +72,7 @@ body {
     border-radius: 4px;
     text-decoration: none;
     color: #333;
+    font-weight: 1000;
     width: 120px;
     line-height: 120px;
     text-align: center;
@@ -124,14 +127,14 @@ body {
     background-image: url("./thumbs/side-dish-thumb.jpg")
 }
 
-.new-recipe {
+.new-recipe-button {
     background: #ED4433;
     color: #fff;
     color: fff;
     text-decoration: none;
     width: 120px;
     display: block;
-    margin: auto;
+    margin: 0 auto 100px auto;
     text-align: center;
     padding: 10px 0;
     transition: background-color .2s ease-in-out;

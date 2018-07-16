@@ -13,7 +13,7 @@ function Home(props){
                         <Link className="homelinks maincourse" to="/maincourse"><span>Main Course</span></Link>
                         <Link className="homelinks sides" to="/sidedishes"><span>Side Dishes</span></Link> 
                 </div> 
-                <Link className="new-recipe" to="./new">New Recipe </Link>  
+                <Link className="new-recipe-button" to="./new"> New Recipe </Link>  
             </div>    
           
         )
