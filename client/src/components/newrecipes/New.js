@@ -81,7 +81,8 @@ class Ingredients extends React.Component{
     render(){ 
         return(
             <div>
-            <form onSubmit={this.handleSubmit}>    
+            <h3 className="login-title">New Recipe</h3>    
+            <form onSubmit={this.handleSubmit} className="new-recipe-form">    
                 <div>
                     <input
                         className="new-recipe-name"
@@ -132,16 +133,16 @@ class Ingredients extends React.Component{
                             placeholder="directions"
                             onChange={ this.handleChange } />  
                     </div>
-                    <div>        
-                    <select name="directory" value={ this.state.directory } onChange={this.handleChange}>
-                        <option value="choices">Select</option>
-                        <option value="breakfast">Breakfast</option>
-                        <option value="appitizer">Appetizer</option>
-                        <option value="sides">Side Dish</option>
-                        <option value="main">Main Course</option>
-                        <option value="dessert">Dessert</option>
-                        <option value="cocktail">Cocktail</option>                        
-                    </select>
+                    <div> 
+                        <select name="directory" value={ this.state.directory } onChange={this.handleChange}>
+                            <option value="choices">Select</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="appitizer">Appetizer</option>
+                            <option value="sides">Side Dish</option>
+                            <option value="main">Main Course</option>
+                            <option value="dessert">Dessert</option>
+                            <option value="cocktail">Cocktail</option>                        
+                        </select>
                     </div>     
                     <button>Submit</button>
                 </form>
