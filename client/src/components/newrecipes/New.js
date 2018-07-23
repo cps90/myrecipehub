@@ -106,8 +106,8 @@ class Ingredients extends React.Component{
                                     onChange={ (e) => this.handleIngredientChange(index, e) } 
                                     />
                                 <input  
-                                    classname="ingredient-amount"
-                                    type="number"
+                                    className="ingredient-amount"
+                                    type="text"
                                     value={ ingredient.amount }
                                     name="amount"
                                     placeholder="amount"
@@ -121,21 +121,22 @@ class Ingredients extends React.Component{
                                     placeholder="unit"
                                     onChange={ (e) => this.handleIngredientChange(index, e) } 
                                     />
-                                {this.state.ingredients.length -1 === index &&  <button onClick={this.addIngredients}>+</button>}
+                                {this.state.ingredients.length -1 === index &&  <button className="ingredient-button" onClick={this.addIngredients}>+</button>}
                             </div>
                             )
                         })}
-                    </div>  
-                    <div className="directions">   
+                </div>  
+                    <div>   
                         <textarea 
+                            className="directions"
                             value={ this.state.directions }
                             name="directions"
                             placeholder="directions"
                             onChange={ this.handleChange } />  
                     </div>
                     <div> 
-                        <select name="directory" value={ this.state.directory } onChange={this.handleChange}>
-                            <option value="choices">Select</option>
+                        <select className="directory" name="directory" value={ this.state.directory } onChange={this.handleChange}>
+                            <option value="choices">Directory</option>
                             <option value="breakfast">Breakfast</option>
                             <option value="appitizer">Appetizer</option>
                             <option value="sides">Side Dish</option>
@@ -144,7 +145,7 @@ class Ingredients extends React.Component{
                             <option value="cocktail">Cocktail</option>                        
                         </select>
                     </div>     
-                    <button>Submit</button>
+                    <button className="submit-recipe-button">Submit</button>
                 </form>
             </div>
         )
