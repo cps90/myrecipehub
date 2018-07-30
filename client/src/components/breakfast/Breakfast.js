@@ -8,15 +8,15 @@ class Breakfast extends React.Component {
     render() {
         return (
             <div>
-                    {this.props.recipe.filter(find => find.directory === 'breakfast').map(info =>
-                        <Recipe key={info._id} 
-                            id={info._id} 
-                            name={info.name} 
-                            ingredients={info.ingredients} 
-                            directions={info.directions} 
-                            imageURL={info.imageURL} 
-                            directory={info.directory} /> 
-                        )}
+                {this.props.recipe.filter(find => find.directory === 'breakfast').map(info =>
+                    <Recipe key={info._id} 
+                        id={info._id} 
+                        name={info.name} 
+                        ingredients={info.ingredients} 
+                        directions={info.directions} 
+                        imageURL={info.imageURL} 
+                        directory={info.directory} /> 
+                )}
             </div>
         )
     }

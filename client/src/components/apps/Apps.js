@@ -7,15 +7,14 @@ class Apps extends React.Component {
     render() {   
         return (
             <div>
-            {/* <Home /> */}
                 {this.props.recipe.filter(find => find.directory === 'appitizer').map(meal =>
-                <Recipe 
-                    key={meal._id} id={meal._id} 
-                    name={meal.name} 
-                    ingredients={meal.ingredients} 
-                    directions={meal.directions} 
-                    imageURL={meal.imageURL} 
-                    directory={meal.directory} /> 
+                    <Recipe 
+                        key={meal._id} id={meal._id} 
+                        name={meal.name} 
+                        ingredients={meal.ingredients} 
+                        directions={meal.directions} 
+                        imageURL={meal.imageURL} 
+                        directory={meal.directory} /> 
                 )}
             </div>
         )

@@ -26,7 +26,6 @@ class Recipe extends React.Component{
                     {this.state.isToggled
                         ?
                             <div className="recipe">
-                                {/* <p> Recipe Title: {this.props.name} </p> */}
                                 <p>Ingredients:</p>
                                 <p className="recipe-info">{this.props.ingredients.map(info => 
                                     <Ingredients 
@@ -37,9 +36,7 @@ class Recipe extends React.Component{
                                         unit={info.unit}/>
                                 )} </p>                                     
                                 <p>Directions: </p>
-                                <p className="recipe-info">{this.props.directions}</p>    
-                                {/* <p>  Directory: {this.props.directory}</p> */}
-
+                                <p className="recipe-info">{this.props.directions}</p>
                             </div>
                         : null
                     }

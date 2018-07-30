@@ -17,24 +17,23 @@ class Recipe extends React.Component{
     render() {
         return(
             <div>
-                <button onClick={this.toggle} className="toggleButton">{this.props.name}</button>
+                <button onClick={this.toggle} className="recipe-toggle">{this.props.name}</button>
                     {this.state.isToggled
-                    ?
-                        <div>
-                            <p> Recipe Title: { this.props.name } </p>
-                            <p> Directions:{ this.props.directions }</p>
-                            <p> Directory:{ this.props.directory }</p>
-                             Amount, Unit, Ingredient:
-                                {this.props.ingredients.map(info => 
+                        ?
+                            <div className="recipe">
+                                <p>Ingredients:</p>
+                                <p className="recipe-info">{this.props.ingredients.map(info => 
                                     <Ingredients 
                                         key={info._id} 
                                         id={info._id} 
-                                        ingredient={info.ingredient}
+                                        name={info.name}
                                         amount={info.amount} 
                                         unit={info.unit}/>
-                                    )}
-                        </div>
-                    : null
+                                )} </p>                                     
+                                <p>Directions: </p>
+                                <p className="recipe-info">{this.props.directions}</p>
+                            </div>
+                        : null
                     }
             </div>
         )
