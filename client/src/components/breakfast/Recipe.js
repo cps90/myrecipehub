@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Ingredients from './Ingredients';
 
+
+
 class Recipe extends React.Component{
     constructor(){
         super();
@@ -14,25 +16,30 @@ class Recipe extends React.Component{
             }
         })
     }
+    
+
     render() {
+        
         return(
             <div>
                 <button onClick={this.toggle} className="recipe-toggle">{this.props.name}</button>
                     {this.state.isToggled
                         ?
-                            <div>
-                            <p> Recipe Title: {this.props.name} </p>
-                            <p> Directions:  { this.props.directions }</p>
-                            <p>  Directory: { this.props.directory }</p>
-                             Amount, Unit, Ingredient:
-                                    {this.props.ingredients.map(info => 
-                                        <Ingredients 
-                                            key={info._id} 
-                                            id={info._id} 
-                                            name={info.ingredient}
-                                            amount={info.amount} 
-                                            unit={info.unit}/>
-                                        )}
+                            <div className="recipe">
+                                {/* <p> Recipe Title: {this.props.name} </p> */}
+                                <p>Ingredients:</p>
+                                <p className="recipe-info">{this.props.ingredients.map(info => 
+                                    <Ingredients 
+                                        key={info._id} 
+                                        id={info._id} 
+                                        name={info.name}
+                                        amount={info.amount} 
+                                        unit={info.unit}/>
+                                )} </p>                                     
+                                <p>Directions: </p>
+                                <p className="recipe-info">{this.props.directions}</p>    
+                                {/* <p>  Directory: {this.props.directory}</p> */}
+
                             </div>
                         : null
                     }

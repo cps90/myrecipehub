@@ -244,7 +244,27 @@ body {
     margin: 0px;
 }
 
-/* .recipe-toggle {
+.recipe-toggle {
+    background-color: #fff;
     border: none;
+    font-size: .90em;
+    margin: 10px 10px;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 0px rgba(163,163,163,1);
+}
 
-} */
+.recipe {
+    width: 80%;
+    margin-left: 10%;  
+    font-size: .80em;
+    color: #333;
+    background-color: #fff;
+    padding: 2px 12px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px 0px rgba(163,163,163,1);
+}
+
+.recipe-info {
+    margin-left: 15%;
+}
