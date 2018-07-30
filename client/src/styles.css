@@ -22,8 +22,10 @@ body {
     color: #666;
     text-decoration: none;
 }
+
 .nav-link:hover {
     color: #101010;
+    cursor: pointer;
 }
 
 .logout-button {
@@ -35,6 +37,7 @@ body {
 
 .login-title {
     text-align: center;
+    color: #666;
 }
 
 .login-form-container {
@@ -55,6 +58,11 @@ body {
     margin: auto;
     background-color: #F1F1F1;
     border-radius: 5px;
+    color: #666;
+}
+
+.login-form-container button:hover {
+    cursor: pointer;
 }
 
 .homepage {
@@ -70,6 +78,7 @@ body {
     border-radius: 4px;
     text-decoration: none;
     color: #333;
+    font-weight: 1000;
     width: 120px;
     line-height: 120px;
     text-align: center;
@@ -124,18 +133,105 @@ body {
     background-image: url("./thumbs/side-dish-thumb.jpg")
 }
 
-.new-recipe {
+.new-recipe-form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.new-recipe-name {
+    padding: 5px;
+    text-align: center;
+    font-size: .80em;
+    /* background-color: #F1F1F1; */
+    border-radius: 5px;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+}
+
+.ingredient {
+    display: grid;
+    grid-template-columns: 50% 20% 20%;
+    margin-left: 5%;
+    grid-gap: 5px;
+}
+
+.ingredient-name {
+    padding: 5px;
+    text-align: center;
+    font-size: .80em;
+    border-radius: 5px;
+}
+
+.ingredient-amount {
+    padding: 5px;
+    text-align: center;
+    font-size: .80em;
+    border-radius: 5px;
+}
+
+.ingredient-unit {
+    padding: 5px;
+    text-align: center;
+    font-size: .80em;
+    border-radius: 5px;
+}
+
+.ingredient-button {
+    padding: 5px;
+    text-align: center;
+    font-size: .80em;
+    border-radius: 5px;
+    width: 30px;
+    margin-bottom: 10px;
+}
+
+.directions {
+    border-radius: 5px;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    font-size: .80em;
+    height: 75px;
+    padding: 5px;
+    border: inset 2px #ececec;
+}
+
+.directory {
+    margin-left: 5%;
+    background-color: #fff;
+    font-size: .80em;
+    color: #666;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+.submit-recipe-button {
     background: #ED4433;
     color: #fff;
-    color: fff;
     text-decoration: none;
     width: 120px;
     display: block;
-    margin: auto;
+    margin: 0 auto 100px auto;
+    text-align: center;
+    padding: 10px 0;
+    transition: background-color .2s ease-in-out;
+    font-size: .80em;
+}
+
+.new-recipe-button {
+    background: #ED4433;
+    color: #fff;
+    text-decoration: none;
+    width: 120px;
+    display: block;
+    margin: 0 auto 100px auto;
     text-align: center;
     padding: 10px 0;
     transition: background-color .2s ease-in-out;
 }
+
 .new-recipe:hover {
     background-color: #333;
 }
@@ -146,4 +242,34 @@ body {
     color: #fff;
     padding: 20px;
     margin: 0px;
+}
+
+.recipe-toggle {
+    background-color: #fff;
+    border: none;
+    font-size: .90em;
+    margin: 10px 10px;
+    color: #333;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px 0px rgba(227,227,227,1);
+    padding: 5px;
+}
+
+.recipe-toggle:hover {
+    cursor: pointer;
+}
+
+.recipe {
+    width: 80%;
+    margin-left: 10%;  
+    font-size: .80em;
+    color: #333;
+    background-color: #fff;
+    padding: 2px 12px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px 0px rgba(163,163,163,1);
+}
+
+.recipe-info {
+    margin-left: 15%;
 }

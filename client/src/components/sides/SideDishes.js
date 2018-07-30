@@ -8,7 +8,6 @@ class SideDishes extends React.Component {
     render() {
         return (
             <div>
-                {/* <Home /> */}
                 {this.props.recipe.filter(find => find.directory === 'sides').map(sides =>
                     <Recipe 
                         key={sides._id} 
@@ -19,7 +18,6 @@ class SideDishes extends React.Component {
                         imageURL={sides.imageURL} 
                         directory={sides.directory} /> 
                     )}
-              
             </div>
         )
     }

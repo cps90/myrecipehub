@@ -81,10 +81,11 @@ class Ingredients extends React.Component{
     render(){ 
         return(
             <div>
-            {/* <Home /> */}
-            <form onSubmit={this.handleSubmit}>    
+            <h3 className="login-title">New Recipe</h3>    
+            <form onSubmit={this.handleSubmit} className="new-recipe-form">    
                 <div>
                     <input
+                        className="new-recipe-name"
                         type="text"
                         value={ this.state.name }
                         name="name"
@@ -96,7 +97,8 @@ class Ingredients extends React.Component{
                     {this.state.ingredients.map((ingredient, index) => {
                         return (
                             <div key={index} className="ingredient">
-                                <input 
+                                <input
+                                    className="ingredient-name" 
                                     type="text"
                                     value={ ingredient.name }
                                     name="name"
@@ -104,43 +106,46 @@ class Ingredients extends React.Component{
                                     onChange={ (e) => this.handleIngredientChange(index, e) } 
                                     />
                                 <input  
-                                    type="number"
+                                    className="ingredient-amount"
+                                    type="text"
                                     value={ ingredient.amount }
                                     name="amount"
                                     placeholder="amount"
                                     onChange={ (e) => this.handleIngredientChange(index, e) } 
                                     />
                                 <input 
+                                    className="ingredient-unit"
                                     type="text"
                                     value={ ingredient.unit }
                                     name="unit"
                                     placeholder="unit"
                                     onChange={ (e) => this.handleIngredientChange(index, e) } 
                                     />
-                                {this.state.ingredients.length -1 === index &&  <button onClick={this.addIngredients}>+</button>}
+                                {this.state.ingredients.length -1 === index &&  <button className="ingredient-button" onClick={this.addIngredients}>+</button>}
                             </div>
                             )
                         })}
-                    </div>  
+                </div>  
                     <div>   
                         <textarea 
+                            className="directions"
                             value={ this.state.directions }
                             name="directions"
                             placeholder="directions"
                             onChange={ this.handleChange } />  
                     </div>
-                    <div>        
-                    <select name="directory" value={ this.state.directory } onChange={this.handleChange}>
-                        <option value="choices">Select</option>
-                        <option value="breakfast">Breakfast</option>
-                        <option value="appitizer">Appitizer</option>
-                        <option value="sides">Side</option>
-                        <option value="main">Main</option>
-                        <option value="dessert">dessert</option>
-                        <option value="cocktail">cocktail</option>                        
-                    </select>
+                    <div> 
+                        <select className="directory" name="directory" value={ this.state.directory } onChange={this.handleChange}>
+                            <option value="choices">Directory</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="appitizer">Appetizer</option>
+                            <option value="sides">Side Dish</option>
+                            <option value="main">Main Course</option>
+                            <option value="dessert">Dessert</option>
+                            <option value="cocktail">Cocktail</option>                        
+                        </select>
                     </div>     
-                    <button>Submit</button>
+                    <button className="submit-recipe-button">Submit</button>
                 </form>
             </div>
         )
