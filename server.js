@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require("path")
-const port =  5000
+const port = process.env.PORT || 5000
 const secret = process.env.SECRET || "this is a secret" 
 
 app.use(express.static(path.join(__dirname, "client", "build")))
