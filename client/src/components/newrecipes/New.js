@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addRecipe } from '../../redux/recipe.js'
-import Home from '../Nav'
 
 class Ingredients extends React.Component{
     constructor() {
@@ -55,9 +54,13 @@ class Ingredients extends React.Component{
         this.setState({
             name: '',
             directions: '',
-            ingredient: '',
-            amount: '',
-            unit: '',
+            ingredients: [
+                { 
+                    name: '',
+                    amount: '',
+                    unit: ''
+                }
+            ],
             directory: '',
             imgURL: ''
         })
