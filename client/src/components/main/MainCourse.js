@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Home from '../Nav';
 import Recipe from './Recipe';
 
 class MainCourse extends React.Component {

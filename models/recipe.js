@@ -13,7 +13,7 @@ const recipeSchema = new Schema({
                 required: true
             },
             amount: {
-                type: Number,
+                type: String,
                 required: true
             },
             unit: {
