@@ -19,7 +19,8 @@
     "express-jwt": "^5.3.1",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.1.6",
-    "morgan": "^1.9.0"
+    "morgan": "^1.9.0",
+    "npm": "^6.4.0"
   },
   "engines": {
     "node": "v8.11.3"
