@@ -17,13 +17,11 @@ import { verify } from './redux/auth';
 import { getRecipes } from './redux/recipe';
 import './styles.css';
 
-class App extends React.Component {
-    
+class App extends React.Component {    
     componentDidMount(){  
         this.props.verify();
         this.props.getRecipes();
     }
-
     render() {
         console.log(this.props)
         const {isAuthenticated, loading} = this.props;
